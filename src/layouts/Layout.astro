@@ -1,0 +1,84 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { siteConfig } from "../config.ts";
+import "@fontsource/poppins";
+
+const { siteLogo, siteName } = siteConfig;
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+
+		<link
+			rel="stylesheet"
+			href="node_modules/@glidejs/glide/dist/css/glide.core.min.css"
+		/>
+	</head>
+	<body class="">
+		<Header />
+		<slot />
+		<Footer />
+	</body>
+</html>
+
+<style is:global>
+	[x-cloak] {
+		display: none !important;
+	}
+
+	body {
+		@apply text-gray-700;
+	}
+
+	.is-sticky {
+		@apply fixed top-0 z-50 w-full;
+	}
+</style>
+
+<script is:inline>
+	const socialBar = document.getElementById("SocialsBar");
+	const navContainer = document.getElementById("NavContainer");
+	const hero = document.getElementById("Hero");
+
+	document.addEventListener("scroll", (event) => {
+		if (window.scrollY > socialBar.offsetHeight) {
+			navContainer.classList.add("is-sticky");
+			hero.style.marginTop = navContainer.offsetHeight + "px";
+		} else {
+			navContainer.classList.remove("is-sticky");
+			hero.style.marginTop = 0;
+		}
+	});
+</script>
+
+<script type="module" is:inline>
+	import Glide from "../../node_modules/@glidejs/glide";
+	new Glide(".glide", {
+		autoplay: 5000,
+		type: "carousel",
+		startAt: 0,
+		perView: 3,
+		breakpoints: {
+			640: {
+				perView: 1,
+			},
+			1024: {
+				perView: 2,
+			},
+		},
+	}).mount();
+</script>

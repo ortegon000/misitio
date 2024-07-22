@@ -1,0 +1,18 @@
+---
+import { siteConfig } from "../config";
+const { siteMap, siteAddress } = siteConfig;
+---
+
+<section id="Location" class="px-2 py-12 bg-gray-100">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="font-bold text-4xl">¡Ubicación!</h2>
+        <p class="mt-2">{siteAddress}</p>
+        <iframe
+            src={`${siteMap}`}
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            class="w-full h-[420px] mt-4 rounded-md shadow"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>

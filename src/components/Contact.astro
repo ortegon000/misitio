@@ -1,0 +1,72 @@
+---
+import { siteConfig } from "../config";
+const { siteEmail } = siteConfig;
+---
+
+<section id="Contact" class="px-2 py-12">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="font-bold text-4xl text-center">¡Contáctanos!</h2>
+
+        <form action="#" class="space-y-8 mt-4 max-w-md mx-auto">
+            <div>
+                <label
+                    for="name"
+                    class="block mb-2 text-sm font-medium text-gray-900"
+                    >Tu nombre</label
+                >
+                <input
+                    type="text"
+                    id="name"
+                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                    placeholder="nombre@mimail.com"
+                    required
+                />
+            </div>
+            <div>
+                <label
+                    for="email"
+                    class="block mb-2 text-sm font-medium text-gray-900"
+                    >Tu email</label
+                >
+                <input
+                    type="email"
+                    id="email"
+                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                    placeholder="nombre@mimail.com"
+                    required
+                />
+            </div>
+            <div>
+                <label
+                    for="subject"
+                    class="block mb-2 text-sm font-medium text-gray-900"
+                    >Asunto</label
+                >
+                <input
+                    type="text"
+                    id="subject"
+                    class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500"
+                    placeholder="Cuentanos. ¿Cómo te podemos ayudar?"
+                    required
+                />
+            </div>
+            <div class="sm:col-span-2">
+                <label
+                    for="message"
+                    class="block mb-2 text-sm font-medium text-gray-900"
+                    >Tu mensaje</label
+                >
+                <textarea
+                    id="message"
+                    rows="6"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500"
+                    placeholder="Deja tu mensaje..."></textarea>
+            </div>
+            <button
+                type="submit"
+                class="bg-accent hover:bg-accent-600 transition px-8 py-2 rounded-md mt-8 inline-block text-xl font-semibold text-white"
+                >Enviar mensaje</button
+            >
+        </form>
+    </div>
+</section>
