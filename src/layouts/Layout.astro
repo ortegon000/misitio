@@ -1,10 +1,13 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { siteConfig } from "../config.ts";
-import "@fontsource/poppins";
+import Header from "../layouts/Header.astro";
+// import Footer from "../components/Footer.astro";
+// import { siteConfig } from "../config.ts";
 
-const { siteLogo, siteName } = siteConfig;
+import '@fontsource/poppins';
+import "../styles/global.css";
+
+
+// const { siteLogo, siteName } = siteConfig;
 
 interface Props {
 	title: string;
@@ -20,18 +23,21 @@ const { title } = Astro.props;
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
+
 		<title>{title}</title>
 
-		<link
+		<!-- <link
 			rel="stylesheet"
 			href="node_modules/@glidejs/glide/dist/css/glide.core.min.css"
-		/>
+		/> -->
 	</head>
+
 	<body class="">
 		<Header />
+		
 		<slot />
-		<Footer />
+		
+		<!-- <Footer /> -->
 	</body>
 </html>
 
@@ -39,17 +45,9 @@ const { title } = Astro.props;
 	[x-cloak] {
 		display: none !important;
 	}
-
-	body {
-		@apply text-gray-700;
-	}
-
-	.is-sticky {
-		@apply fixed top-0 z-50 w-full;
-	}
 </style>
 
-<script is:inline>
+<!-- <script is:inline>
 	const socialBar = document.getElementById("SocialsBar");
 	const navContainer = document.getElementById("NavContainer");
 	const hero = document.getElementById("Hero");
@@ -63,9 +61,9 @@ const { title } = Astro.props;
 			hero.style.marginTop = 0;
 		}
 	});
-</script>
+</script> -->
 
-<script type="module" is:inline>
+<!-- <script type="module" is:inline>
 	import Glide from "../../node_modules/@glidejs/glide";
 	new Glide(".glide", {
 		autoplay: 5000,
@@ -81,4 +79,4 @@ const { title } = Astro.props;
 			},
 		},
 	}).mount();
-</script>
+</script> -->

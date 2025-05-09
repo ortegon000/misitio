@@ -1,8 +1,3 @@
-import Facebook from "./icons/socials/facebook.astro";
-import Instagram from "./icons/socials/instagram.astro";
-import X from "./icons/socials/x.astro";
-import Linkedin from "./icons/socials/linkedin.astro";
-
 export const siteConfig = {
     siteName: 'My Awesome Site',
     siteLogo: '/img/logo.png',
