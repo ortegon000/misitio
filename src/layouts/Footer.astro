@@ -1,0 +1,56 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+<footer class="relative py-8 text-cyan-950 z-10">
+    
+    <section class="max-w-screen-xl mx-auto px-4 md:flex items-center justify-between border-b border-cyan-950/10 py-8 after:bg-cyan-500/10 after:absolute after:top-0 after:left-0 after:w-full after:h-full after:z-[-1] ">
+        
+        <article class=" mt-4 md:mt-0">
+            <h3 class="text-2xl font-bold mb-2">Get in Touch with us</h3>
+            <p>Lorem Ipsum&nbsp;is simply dummy</p>
+        </article>
+        
+        <article class="flex items-center gap-4 mt-4 md:mt-0">
+            <div class="p-4 bg-cyan-950 text-white rounded-full">
+                <Icon name="mdi:phone" size={24} />
+            </div>
+            <div>
+                <h5 class="font-bold">Call Us</h5>
+                <p><a href="tel:+11234567890">+1 123 456 7890</a></p>
+            </div>
+        </article>
+        
+        <article class="flex items-center gap-4 mt-4 md:mt-0">
+            <div class="p-4 bg-cyan-950 text-white rounded-full">
+                <Icon name="mdi:email" size={24} />
+            </div>
+            <div>
+                <h5 class="font-bold">Send us a Mail</h5>
+                <p><a href="mailto:info@example.com">info@example.com</a></p>
+            </div>
+        </article>
+    
+        <article class="flex items-center gap-4 mt-4 md:mt-0">
+            <div class="p-4 bg-cyan-950 text-white rounded-full">
+                <Icon name="mdi:clock" size={24} />
+            </div>
+            <div>
+                <h5 class="font-bold">Opening Time</h5>
+                <p>Mon -Sat: 7:00 - 17:00</p>
+            </div>
+        </article>
+
+    </section>
+
+    <section class="max-w-screen-xl mx-auto py-8 text-center">
+        <p>Made with <span class="text-[#ef7701]">❤</span> by <a href="https://agenciaefe5.com" class="text-[#ef7701] hover:underline">Agencia EFE5</a></p>
+    </section>
+</footer>
+
+<style>
+    footer {
+        background-image: url('/images/bg4.webp');
+        background-size: cover;
+        background-position: center left;
+    }
+</style>

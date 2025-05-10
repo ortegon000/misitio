@@ -1,72 +1,165 @@
 ---
 import { Image } from "astro:assets";
+import { Icon } from 'astro-icon/components'
 
-import Icon1 from "@assets/icons/icon1.svg";
-import Icon2 from "@assets/icons/icon2.svg";
-import Icon3 from "@assets/icons/icon3.svg";
-import Icon4 from "@assets/icons/icon4.svg";
-import Icon5 from "@assets/icons/icon5.svg";
-import Icon6 from "@assets/icons/icon6.svg";
+import Icon1 from "@assets/images/icon1.svg";
+import Icon2 from "@assets/images/icon2.svg";
+import Icon3 from "@assets/images/icon3.svg";
+import Icon4 from "@assets/images/icon4.svg";
+import Icon5 from "@assets/images/icon5.svg";
+import Icon6 from "@assets/images/icon6.svg";
+
+import Logo from "@assets/images/logo-white.svg";
 
 ---
 
-<aside class="hidden xl:block bg-white p-4">
+<aside class="hidden xl:block bg-white p-6">
 
     <section class="max-w-screen-xl mx-auto flex items-center justify-between">
         
         <article class="flex items-center gap-4 text-cyan-900">
-            <Image src={Icon1} alt="Icon1" />
+            <Image src={Icon1} alt="Icon1" loading="eager"/>
     
             <div class="font-semibold">
-                <p class="text-cyan-500">Contact Us</p>
-                <p class="text-lg font-bold">+1 123 456 7890</p>
+                <p class="text-cyan-500 text-xs">Contact Us</p>
+                <p class="font-bold">+1 123 456 7890</p>
             </div>
         </article>
 
         <article class="flex items-center gap-4 text-cyan-900">
-            <Image src={Icon2} alt="Icon2" />
+            <Image src={Icon2} alt="Icon2" loading="eager"/>
               
             <div class="font-semibold">
-                <p class="text-cyan-500">Email Support</p>
-                <p class="text-lg font-bold">email@domain.com</p>
+                <p class="text-cyan-500 text-xs">Email Support</p>
+                <p class="font-bold">email@domain.com</p>
             </div>
         </article>
 
         <article class="flex items-center gap-4 text-cyan-900">
-            <Image src={Icon3} alt="Icon3" />
+            <Image src={Icon3} alt="Icon3" loading="eager"/>
     
             <div class="font-semibold">
-                <p class="text-cyan-500">Online Appointment</p>
-                <p class="text-lg font-bold">Book Now</p>
+                <p class="text-cyan-500 text-xs">Online Appointment</p>
+                <p class="font-bold">Book Now</p>
             </div>
         </article>
 
         <article class="flex items-center gap-4 text-cyan-900">
-            <Image src={Icon4} alt="Icon4" />
+            <Image src={Icon4} alt="Icon4" loading="eager"/>
     
             <div class="font-semibold">
-                <p class="text-cyan-500">Supports</p>
-                <p class="text-lg font-bold">24x7 Supports</p>
+                <p class="text-cyan-500 text-xs">Supports</p>
+                <p class="font-bold">24x7 Supports</p>
             </div>
         </article>
 
         <article class="flex items-center gap-4 text-cyan-900">
-            <Image src={Icon5} alt="Icon5" />
+            <Image src={Icon5} alt="Icon5" loading="eager"/>
 
             <div class="font-semibold">
-                <p class="text-cyan-500">Payment</p>
-                <p class="text-lg font-bold">Pay Online</p>
+                <p class="text-cyan-500 text-xs">Payment</p>
+                <p class="font-bold">Pay Online</p>
             </div>
         </article>
 
         <article class="flex items-center gap-4 text-cyan-900">
-            <Image src={Icon6} alt="Icon6" />
+            <Image src={Icon6} alt="Icon6" loading="eager"/>
     
             <div class="font-semibold">
-                <p class="text-cyan-500">My Cart</p>
-                <p class="text-lg font-bold">2 Items</p>
+                <p class="text-cyan-500 text-xs">My Cart</p>
+                <p class="font-bold">2 Items</p>
             </div>
         </article>
     </section>
 
 </aside>
+
+<header class="relative bg-cyan-950 px-4 py-4 text-white" x-data="{ open: false }">
+    
+    <div class="max-w-screen-xl mx-auto flex items-center justify-between">
+        <Image src={Logo} alt="Logo" class="h-10 w-auto object-contain" loading="eager"/>
+        
+        <nav class="hidden md:block">
+            <ul class="flex items-center gap-2">
+                <li>
+                    <a href="#home" class="block py-2 px-4 hover:text-cyan-500 rounded-xl transition-colors" @click="open = false">Home</a>
+                </li>
+                <li>
+                    <a href="#about" class="block py-2 px-4 hover:text-cyan-500 rounded-xl transition-colors" @click="open = false">About</a>
+                </li>
+                <li>
+                    <a href="#services" class="block py-2 px-4 hover:text-cyan-500 rounded-xl transition-colors" @click="open = false">Services</a>
+                </li>
+                <li>
+                    <a href="#blog" class="block py-2 px-4 hover:text-cyan-500 rounded-xl transition-colors" @click="open = false">Blog</a>
+                </li>
+                <li>
+                    <a href="#contact" class="block py-2 px-4 bg-cyan-500 hover:bg-cyan-600 rounded-xl transition-colors" @click="open = false">Contact</a>
+                </li>
+            </ul>
+        </nav>
+
+        <button class="md:hidden cursor-pointer" @click="open = !open">
+            <Icon name="mdi:menu" size={32} x-show="!open"/>
+            <Icon name="mdi:close" size={32} x-show="open" x-cloak/>
+        </button>
+    </div>
+    
+    <!-- mobile menu -->
+    <nav class="absolute w-full bg-cyan-950 top-18 left-0 p-4 md:hidden" 
+        @click.away="open = false"
+        x-cloak
+        x-show="open"
+        x-transition:enter="transition duration-400"
+        x-transition:enter-start="transform -translate-x-full"
+        x-transition:enter-end="transform translate-x-0"
+        x-transition:leave="transition duration-400"
+        x-transition:leave-start="transform"
+        x-transition:leave-end="transform translate-x-full"
+    >
+        <ul class="">
+            <li>
+                <a href="#home" class="block py-2 text-2xl font-bold" @click="open = false">Home</a>
+            </li>
+            <li>
+                <a href="#about" class="block py-2 text-2xl font-bold" @click="open = false">About</a>
+            </li>
+            <li>
+                <a href="#services" class="block py-2 text-2xl font-bold" @click="open = false">Services</a>
+            </li>
+            <li>
+                <a href="#blog" class="block py-2 text-2xl font-bold" @click="open = false">Blog</a>
+            </li>
+            <li>
+                <a href="#contact" class="block py-2 text-2xl font-bold" @click="open = false">Contact</a>
+            </li>
+        </ul>
+
+        <ul class="flex items-center gap-4 mt-8">
+            <li>
+                <a href="https://www.facebook.com" class="block py-2 text-2xl font-bold">
+                    <Icon name="fa6-brands:facebook"  size={24} />
+                </a>
+            </li>
+
+            <li>
+                <a href="https://x.com/home" class="block py-2 text-2xl font-bold">
+                    <Icon name="fa6-brands:x-twitter" size={24} />
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.linkedin.com" class="block py-2 text-2xl font-bold">
+                    <Icon name="fa6-brands:linkedin" size={24} />
+                </a>
+            </li>
+
+            <li>
+                <a href="https://www.instagram.com" class="block py-2 text-2xl font-bold">
+                    <Icon name="fa6-brands:instagram" size={24} />
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</header>
