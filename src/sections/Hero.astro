@@ -10,106 +10,116 @@ import Avatar2 from "@assets/images/avatar2.webp";
 import Avatar3 from "@assets/images/avatar3.webp";
 import Avatar4 from "@assets/images/avatar4.webp";
 import Avatar5 from "@assets/images/avatar5.webp";
+import Avatar6 from "@assets/images/avatar6.webp";
 ---
 
 <section class="hero">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-screen-xl mx-auto px-4 min-h-[calc(100vh-16rem)]">
+    <div class="relative max-w-screen-xl mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 min-h-[calc(100vh-16rem)]">
         
-        <div class="">
-            <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold mt-12 lg:mt-24 leading-tight text-cyan-950"> 
-                Medical & Health Care
+            <div class="">
+                <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold mt-12 lg:mt-24 leading-tight text-cyan-950"> 
+                    Medical & Health Care
+                    
+                    <span class="text-cyan-500 inline-flex items-center gap-4">
+                        Services
+                        <Image src={LineImage} alt="Line Image" class="lg:block hidden h-12 w-full object-contain"  />
+                    </span>
+                </h1>
+    
+                <p class="md:text-xl leading-normal text-balance mt-2">Your health is our top priority. Schedule an appointment with us today</p>
+    
                 
-                <span class="text-cyan-500 inline-flex items-center gap-4">
-                    Services
-                    <Image src={LineImage} alt="Line Image" class="lg:block hidden h-12 w-full object-contain"  />
-                </span>
-            </h1>
-
-            <p class="md:text-xl leading-normal text-balance mt-2">Your health is our top priority. Schedule an appointment with us today</p>
-
-            
-            <div class="flex items-center gap-4 mt-4">
-                <a href="#" class="bg-cyan-500 text-white px-4 py-3 md:px-10 md:py-4 rounded-xl md:text-lg">
-                    Appointment
-                    <span class="">
-                        <i class=""></i>
-                    </span>
-                </a>
-
-                <a href="#" class="bg-cyan-950 text-white px-4 py-3 md:px-10 md:py-4 rounded-xl md:text-lg">
-                    Contact Us
-                    <span class="">
-                        <i class=""></i>
-                    </span>
-                </a>
+                <div class="flex items-center gap-4 mt-4">
+                    <a href="#" class="bg-cyan-500 text-white px-4 py-3 md:px-10 md:py-4 rounded-xl md:text-lg">
+                        Appointment
+                        <span class="">
+                            <i class=""></i>
+                        </span>
+                    </a>
+    
+                    <a href="#" class="bg-cyan-950 text-white px-4 py-3 md:px-10 md:py-4 rounded-xl md:text-lg">
+                        Contact Us
+                        <span class="">
+                            <i class=""></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+    
+            <div class="relative">
+                <Image src={HeroImage} alt="Hero Image" class="h-full w-full object-cover"/>
+                
+                <article class="absolute inset-0 mx-auto overflow-hidden">
+                    <div class="absolute bg-white size-24 p-4 rounded-xl right-0 top-1/2 -translate-y-full shadow">
+                        <Image src={HeartImage} alt="Heart Image" class="h-full w-full object-contain" />
+                    </div>
+                </article>
+    
+                <article class="absolute bottom-12 -left-24 flex items-center gap-4 bg-white p-4 rounded-full min-w-xs shadow">
+                    <div class="flex w-full">
+                        <Image src={Avatar1} alt="Avatar 1" class="rounded-full size-10 border-2 border-white"/>
+                        <Image src={Avatar2} alt="Avatar 2" class="rounded-full size-10 border-2 border-white -ml-3"/>
+                        <Image src={Avatar3} alt="Avatar 3" class="rounded-full size-10 border-2 border-white -ml-3"/>
+                        <Image src={Avatar4} alt="Avatar 4" class="rounded-full size-10 border-2 border-white -ml-3"/>
+                    </div>
+                    <div class="w-full">
+                        <span class="text-xl font-bold block">150k</span>
+                        <span class="text-sm text-cyan-950/60">Patient recovers</span>
+                    </div>
+                </article>
+    
+                <article class="absolute top-1/3 left-0 bg-white shadow p-4 rounded-xl">
+                    <div class="font-bold text-center">
+    
+                        <svg class="progress blue noselect" data-progress="82" x="0px" y="0px" viewBox="0 0 80 80">
+                            <path class="track" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                            <path class="fill" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
+                            
+                            <text class="value" x="50%" y="60%">0%</text>
+                        </svg>
+                    </div>
+                    
+                    <div class="flex items-center gap-4 min-w-[140px]">
+                        <h6 class="text-sm font-bold w-full">Successfully <br> diagnosis</h6>
+                        <a href="#" class="w-full">
+                            <Icon name="mdi:arrow-top-right-thin-circle-outline" size={50} class="text-cyan-500" />
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="absolute bottom-2 -right-24 bg-white p-4 rounded-xl shadow max-w-xs">
+                    <div class="flex items-center gap-4">        
+                        <div class="">
+                            <Image src={Avatar5} alt="Avatar 5" class="size-12 rounded-full" />
+                        </div>
+                        <div class="">
+                            <h6 class="text-sm font-bold">Dr. Natali jackson</h6>
+                            <ul class="flex">
+                                <Icon name="mdi:star" size={20} class="text-yellow-500" />
+                                <Icon name="mdi:star" size={20} class="text-yellow-500" />
+                                <Icon name="mdi:star" size={20} class="text-yellow-500" />
+                                <Icon name="mdi:star" size={20} class="text-yellow-500" />
+                                <Icon name="mdi:star" size={20} class="text-yellow-500" />
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <p class="mt-4 text-sm text-cyan-950/60">“It is a long established fact that a reader will be distracted by the readable content”</p>
+                </article>
             </div>
         </div>
 
-        <div class="relative">
-            <Image src={HeroImage} alt="Hero Image" class="h-full w-full object-cover"/>
-            
-            <article class="absolute inset-0 mx-auto overflow-hidden">
-                <div class="absolute bg-white size-24 p-4 rounded-xl right-0 top-1/2 -translate-y-full shadow">
-                    <Image src={HeartImage} alt="Heart Image" class="h-full w-full object-contain" />
-                </div>
-            </article>
-
-            <article class="absolute bottom-12 -left-24 flex items-center gap-4 bg-white p-4 rounded-full min-w-xs shadow">
-                <div class="flex w-full">
-                    <Image src={Avatar1} alt="Avatar 1" class="rounded-full size-10 border-2 border-white"/>
-                    <Image src={Avatar2} alt="Avatar 2" class="rounded-full size-10 border-2 border-white -ml-3"/>
-                    <Image src={Avatar3} alt="Avatar 3" class="rounded-full size-10 border-2 border-white -ml-3"/>
-                    <Image src={Avatar4} alt="Avatar 4" class="rounded-full size-10 border-2 border-white -ml-3"/>
-                </div>
-                <div class="w-full">
-                    <span class="text-xl font-bold block">150k</span>
-                    <span class="text-sm text-cyan-950/60">Patient recovers</span>
-                </div>
-            </article>
-
-            
-            <article class="absolute top-1/3 left-0 bg-white shadow p-4 rounded-xl">
-                <div class="font-bold text-center">
-
-                    <svg class="progress blue noselect" data-progress="82" x="0px" y="0px" viewBox="0 0 80 80">
-                        <path class="track" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
-                        <path class="fill" d="M5,40a35,35 0 1,0 70,0a35,35 0 1,0 -70,0" />
-                        
-                        <text class="value" x="50%" y="60%">0%</text>
-                    </svg>
-                </div>
-                
-                <div class="flex items-center gap-4 min-w-[140px]">
-                    <h6 class="text-sm font-bold w-full">Successfully <br> diagnosis</h6>
-                    <a href="#" class="w-full">
-                        <Icon name="mdi:arrow-top-right-thin-circle-outline" size={50} class="text-cyan-500" />
-                    </a>
-                </div>
-            </article>
-            
-            
-            <article class="absolute bottom-2 -right-24 bg-white p-4 rounded-xl shadow max-w-xs">
-                <div class="flex items-center gap-4">        
-                    <div class="">
-                        <Image src={Avatar5} alt="Avatar 5" class="size-12 rounded-full" />
-                    </div>
-                    <div class="">
-                        <h6 class="text-sm font-bold">Dr. Natali jackson</h6>
-                        <ul class="flex">
-                            <Icon name="mdi:star" size={20} class="text-yellow-500" />
-                            <Icon name="mdi:star" size={20} class="text-yellow-500" />
-                            <Icon name="mdi:star" size={20} class="text-yellow-500" />
-                            <Icon name="mdi:star" size={20} class="text-yellow-500" />
-                            <Icon name="mdi:star" size={20} class="text-yellow-500" />
-                        </ul>
-                    </div>
-                </div>
-
-                <p class="mt-4 text-sm text-cyan-950/60">“It is a long established fact that a reader will be distracted by the readable content”</p>
-            </article>
-        </div>
+        <article class="absolute bottom-2 left-0 grid grid-cols-2 grid-rows-2">
+            <div class="question-widget relative bg-white p-2 rounded-xl shadow rounded-br-none w-fit h-fit mr-0 ml-auto">
+                <Image src={Avatar6} alt="Avatar 6" class="size-12 object-contain rounded-xl" loading="eager"/>
+            </div>
+            <div class="bg-white p-2 rounded-xl shadow row-start-2 col-start-2 rounded-tl-none text-sm text-cyan-950/60">
+                Have a Question?
+                <a href="mailto:info@example.com" class="block text-cyan-500 text-xl">info@example.com</a>
+            </div>
+        </article>    
     </div>
-
 </section>
 
 <style>
@@ -154,6 +164,32 @@ import Avatar5 from "@assets/images/avatar5.webp";
         -ms-user-select: none;
         user-select: none;
             cursor: default;
+    }
+
+    .question-widget::before {
+        content: "";
+        position: absolute;
+        background-image: url(data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50' fill='none'><path fill-rule='evenodd' clip-rule='evenodd' d='M0 0V50H50C22.3858 50 0 27.6142 0 0Z' fill='red'/></svg>);
+        background-size: 100%;
+        height: 20px;
+        width: 20px;
+        right: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .question-widget::after {
+        content: "";
+        position: absolute;
+        background-image: url(data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50' fill='none'><path fill-rule='evenodd' clip-rule='evenodd' d='M0 0V50H50C22.3858 50 0 27.6142 0 0Z' fill='red'/></svg>);
+        background-size: 100%;
+        height: 20px;
+        width: 20px;
+        bottom: -20px;
+        right: 0;
+        transform: rotate(180deg);
+        top: 50%;
+        transform: translateY(-50%);
     }
 </style>
 
