@@ -9,7 +9,7 @@ import Icon4 from "@assets/images/icon4.svg";
 import Icon5 from "@assets/images/icon5.svg";
 import Icon6 from "@assets/images/icon6.svg";
 
-import Logo from "@assets/images/logo-white.svg";
+import Logo from "@assets/images/logo.svg";
 
 ---
 
@@ -74,92 +74,177 @@ import Logo from "@assets/images/logo-white.svg";
 
 </aside>
 
-<header class="bg-cyan-950 px-4 py-4 text-white sticky top-0 z-50" x-data="{ open: false }">
+<div x-data="{ openMenu: false, openSideBar: true }">
+    <header class="bg-cyan-950 px-4 py-4 text-white sticky top-0 z-10">
     
-    <div class="max-w-screen-xl mx-auto flex items-center justify-between">
-        <Image src={Logo} alt="Logo" class="h-10 w-auto object-contain" loading="eager"/>
+        <div class="max-w-screen-xl mx-auto flex items-center justify-between">
+            <Image src={Logo} alt="Logo" class="h-10 w-auto object-contain" loading="eager"/>
+            
+            <nav class="hidden md:block">
+                <ul class="flex items-center gap-2">
+                    <li>
+                        <a href="#home" class="block py-2 px-4 hover:text-cyan-500 rounded-xl transition-colors" @click="openMenu = false">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about" class="block py-2 px-4 hover:text-cyan-500 rounded-xl transition-colors" @click="openMenu = false">About</a>
+                    </li>
+                    <li>
+                        <a href="#services" class="block py-2 px-4 hover:text-cyan-500 rounded-xl transition-colors" @click="openMenu = false">Services</a>
+                    </li>
+                    <li>
+                        <a href="#blog" class="block py-2 px-4 hover:text-cyan-500 rounded-xl transition-colors" @click="openMenu = false">Blog</a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="block py-2 px-4 bg-cyan-500 hover:bg-cyan-600 rounded-xl transition-colors" @click="openMenu = false">Contact</a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="block py-2 px-4 bg-white hover:bg-cyan-100 text-cyan-950 rounded-xl transition-colors" @click="openSideBar = !openSideBar">
+                            <Icon name="mdi:menu" size={24}/>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+    
+            <button class="md:hidden cursor-pointer" @click="openMenu = !openMenu">
+                <Icon name="mdi:menu" size={32} x-show="!openMenu"/>
+                <Icon name="mdi:close" size={32} x-show="openMenu" x-cloak/>
+            </button>
+        </div>
         
-        <nav class="hidden md:block">
-            <ul class="flex items-center gap-2">
+        <!-- mobile menu -->
+        <nav class="absolute w-full bg-cyan-950 top-18 left-0 p-4 md:hidden" 
+            @click.away="openMenu = false"
+            x-cloak
+            x-show="openMenu"
+            x-transition:enter="transition duration-300"
+            x-transition:enter-start="transform -translate-x-full"
+            x-transition:enter-end="transform translate-x-0"
+            x-transition:leave="transition duration-300"
+            x-transition:leave-start="transform"
+            x-transition:leave-end="transform translate-x-full"
+        >
+            <ul class="">
                 <li>
-                    <a href="#home" class="block py-2 px-4 hover:text-cyan-500 rounded-xl transition-colors" @click="open = false">Home</a>
+                    <a href="#home" class="block py-2 text-2xl font-bold" @click="openMenu = false">Home</a>
                 </li>
                 <li>
-                    <a href="#about" class="block py-2 px-4 hover:text-cyan-500 rounded-xl transition-colors" @click="open = false">About</a>
+                    <a href="#about" class="block py-2 text-2xl font-bold" @click="openMenu = false">About</a>
                 </li>
                 <li>
-                    <a href="#services" class="block py-2 px-4 hover:text-cyan-500 rounded-xl transition-colors" @click="open = false">Services</a>
+                    <a href="#services" class="block py-2 text-2xl font-bold" @click="openMenu = false">Services</a>
                 </li>
                 <li>
-                    <a href="#blog" class="block py-2 px-4 hover:text-cyan-500 rounded-xl transition-colors" @click="open = false">Blog</a>
+                    <a href="#blog" class="block py-2 text-2xl font-bold" @click="openMenu = false">Blog</a>
                 </li>
                 <li>
-                    <a href="#contact" class="block py-2 px-4 bg-cyan-500 hover:bg-cyan-600 rounded-xl transition-colors" @click="open = false">Contact</a>
+                    <a href="#contact" class="block py-2 text-2xl font-bold" @click="openMenu = false">Contact</a>
                 </li>
             </ul>
-        </nav>
-
-        <button class="md:hidden cursor-pointer" @click="open = !open">
-            <Icon name="mdi:menu" size={32} x-show="!open"/>
-            <Icon name="mdi:close" size={32} x-show="open" x-cloak/>
-        </button>
-    </div>
     
-    <!-- mobile menu -->
-    <nav class="absolute w-full bg-cyan-950 top-18 left-0 p-4 md:hidden" 
-        @click.away="open = false"
+            <ul class="flex items-center gap-4 mt-8">
+                <li>
+                    <a href="https://www.facebook.com" class="block py-2 text-2xl font-bold">
+                        <Icon name="fa6-brands:facebook"  size={24} />
+                    </a>
+                </li>
+    
+                <li>
+                    <a href="https://x.com/home" class="block py-2 text-2xl font-bold">
+                        <Icon name="fa6-brands:x-twitter" size={24} />
+                    </a>
+                </li>
+    
+                <li>
+                    <a href="https://www.linkedin.com" class="block py-2 text-2xl font-bold">
+                        <Icon name="fa6-brands:linkedin" size={24} />
+                    </a>
+                </li>
+    
+                <li>
+                    <a href="https://www.instagram.com" class="block py-2 text-2xl font-bold">
+                        <Icon name="fa6-brands:instagram" size={24} />
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+    </header>
+    
+    <aside 
+        class="bg-white p-4 text-cyan-950 fixed top-0 right-0 bottom-0 w-full max-w-sm z-30"
         x-cloak
-        x-show="open"
-        x-transition:enter="transition duration-400"
-        x-transition:enter-start="transform -translate-x-full"
+        x-show="openSideBar"
+        @click.away="openSideBar = false"
+        x-transition:enter="transition duration-300"
+        x-transition:enter-start="transform translate-x-full"
         x-transition:enter-end="transform translate-x-0"
-        x-transition:leave="transition duration-400"
+        x-transition:leave="transition duration-300"
         x-transition:leave-start="transform"
         x-transition:leave-end="transform translate-x-full"
     >
-        <ul class="">
-            <li>
-                <a href="#home" class="block py-2 text-2xl font-bold" @click="open = false">Home</a>
-            </li>
-            <li>
-                <a href="#about" class="block py-2 text-2xl font-bold" @click="open = false">About</a>
-            </li>
-            <li>
-                <a href="#services" class="block py-2 text-2xl font-bold" @click="open = false">Services</a>
-            </li>
-            <li>
-                <a href="#blog" class="block py-2 text-2xl font-bold" @click="open = false">Blog</a>
-            </li>
-            <li>
-                <a href="#contact" class="block py-2 text-2xl font-bold" @click="open = false">Contact</a>
-            </li>
-        </ul>
+    
+        <button class="cursor-pointer" @click="openSideBar = false">
+            <Icon name="mdi:close" size={32}/>
+        </button>
+    
+        <Image src={Logo} alt="Logo" class="h-10 mt-4 w-auto object-contain"/>
+    
+        <p class="mt-4 text-balance">
+            ClinicMaster is a modern and responsive Bootstrap Django template designed for health and medical websites. Ideal for clinics, hospitals, and healthcare professionals seeking a professional online presence with an elegant and user-friendly design.
+        </p>
+    
+        <div class="mt-8">
+            <h4 class="text-xl font-bold">Contact Us</h4>
+            <ul>
+                <li class="flex items-center gap-2 mt-2">
+                    <Icon name="mdi:check" size={24} class="text-cyan-500"/>
+                    Monday - Friday: 9:00 AM - 6:00 PM
+                </li>
+                <li class="flex items-center gap-2 mt-2">
+                    <Icon name="mdi:check" size={24} class="text-cyan-500"/>
+                    Saturday: 9:00 AM - 2:00 PM
+                </li>
+                <li class="flex items-center gap-2 mt-2">
+                    <Icon name="mdi:check" size={24} class="text-cyan-500"/>
+                    Sunday: Closed
+                </li>
+            </ul>
+        </div>
 
-        <ul class="flex items-center gap-4 mt-8">
-            <li>
-                <a href="https://www.facebook.com" class="block py-2 text-2xl font-bold">
-                    <Icon name="fa6-brands:facebook"  size={24} />
-                </a>
-            </li>
+        <div class="mt-8">
+            <h4 class="text-xl font-bold">News Letter</h4>
+            <form action="" class="mt-4">
+                <input type="email" placeholder="Enter your email" class="w-full p-2 border-b border-cyan-500 outline-none" required/>
+                <button class="w-full p-2 bg-cyan-500 text-white rounded-xl mt-4 cursor-pointer">Subscribe</button>
+            </form>
+        </div>
 
-            <li>
-                <a href="https://x.com/home" class="block py-2 text-2xl font-bold">
-                    <Icon name="fa6-brands:x-twitter" size={24} />
-                </a>
-            </li>
-
-            <li>
-                <a href="https://www.linkedin.com" class="block py-2 text-2xl font-bold">
-                    <Icon name="fa6-brands:linkedin" size={24} />
-                </a>
-            </li>
-
-            <li>
-                <a href="https://www.instagram.com" class="block py-2 text-2xl font-bold">
-                    <Icon name="fa6-brands:instagram" size={24} />
-                </a>
-            </li>
-            
-        </ul>
-    </nav>
-</header>
+        <div class="mt-8">
+            <h4 class="text-xl font-bold">Follow us</h4>
+            <ul class="flex items-center gap-2 mt-4">
+                <li>
+                    <a href="#" class="block bg-cyan-950 p-4 text-white rounded-full hover:text-cyan-500 transition-colors">
+                        <Icon name="fa6-brands:facebook" size={16}/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="block bg-cyan-950 p-4 text-white rounded-full hover:text-cyan-500 transition-colors">
+                        <Icon name="fa6-brands:x-twitter" size={16}/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="block bg-cyan-950 p-4 text-white rounded-full hover:text-cyan-500 transition-colors">
+                        <Icon name="fa6-brands:linkedin" size={16}/>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="block bg-cyan-950 p-4 text-white rounded-full hover:text-cyan-500 transition-colors">
+                        <Icon name="fa6-brands:instagram" size={16}/>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+    
+    <div class="fixed inset-0 bg-black/50 z-20" x-show="openSideBar" x-cloak x-transition></div>
+</div>
