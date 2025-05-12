@@ -40,22 +40,22 @@ export const siteConfig = {
         {
             name: 'facebook',
             url: 'https://facebook.com',
-            icon: Facebook
+            icon: 'fa6-brands:facebook'
         },
         {
             name: 'instagaram',
             url: 'https://instagram.com',
-            icon: Instagram
+            icon: 'fa6-brands:instagram'
         },
         {
             name: 'x',
             url: 'https://x.com',
-            icon: X
+            icon: 'fa6-brands:x-twitter'
         },
         {
             name: 'linkedin',
             url: 'https://linkedin.com',
-            icon: Linkedin
+            icon: 'fa6-brands:linkedin'
         }
     ],
     services: [
